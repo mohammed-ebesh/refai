@@ -5,7 +5,7 @@ import Modal from "../modal/index";
 
 import { db } from "../../app/firebase";
 
-function index({ setShowModel, showModel, categories }) {
+function Index({ setShowModel, showModel, categories }) {
   const [file, setFile] = useState("");
   const [withSale, setWithSale] = useState(false);
   const [newItem, setNewItem] = useState({
@@ -177,4 +177,4 @@ function index({ setShowModel, showModel, categories }) {
   );
 }
 
-export default index;
+export default Index;

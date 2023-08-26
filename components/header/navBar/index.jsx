@@ -5,7 +5,7 @@ import Image from "next/image";
 import Logo from "../../../assets/img/Logo.png";
 import { PiBag } from "react-icons/pi";
 
-function index({ setShowLogInModal, isLogin, setIsLogin }) {
+function Index({ setShowLogInModal, isLogin, setIsLogin }) {
   const [count, setCount] = useState(0);
   return (
     <div className="bg-[#191919] p-3">
@@ -47,4 +47,4 @@ function index({ setShowLogInModal, isLogin, setIsLogin }) {
   );
 }
 
-export default index;
+export default Index;

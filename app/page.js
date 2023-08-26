@@ -8,6 +8,7 @@ import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase";
 import { useState, useEffect } from "react";
 export default function Home() {
+  // saje
   const [isOpenForChipping, seIsOpenForChipping] = useState(true);
   useEffect(() => {
     const q = query(collection(db, "isOpenForChipping"));

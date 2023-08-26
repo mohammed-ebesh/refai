@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./navBar/index";
 import Hero from "./hero/index";
 
-function Index({ setShowLogInModal, isLogin, setIsLogin }) {
+function Header({ setShowLogInModal, isLogin, setIsLogin }) {
   return (
     <>
       <Navbar
@@ -15,4 +15,4 @@ function Index({ setShowLogInModal, isLogin, setIsLogin }) {
   );
 }
 
-export default Index;
+export default Header;

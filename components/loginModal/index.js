@@ -4,7 +4,7 @@ import Modal from "../modal/index";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../app/firebase";
 
-const Index = ({ showModal, setShowModal, setIsLogin }) => {
+const LoginModal = ({ showModal, setShowModal, setIsLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -92,4 +92,4 @@ const Index = ({ showModal, setShowModal, setIsLogin }) => {
   );
 };
 
-export default Index;
+export default LoginModal;

@@ -8,7 +8,7 @@ import { FaShippingFast } from "react-icons/fa";
 import { AiOutlineDollarCircle } from "react-icons/ai";
 import { Tb24Hours } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
-function Index() {
+function Hero() {
   const arr = [
     {
       title: "تأسست عام 2017 من قبل الرفاعي",
@@ -73,4 +73,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Hero;

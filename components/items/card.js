@@ -10,7 +10,7 @@ import EditItemModal from "../editModal/index";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import AddItemMolad from "../addItemsModal/index";
 
-function card({ isLogin }) {
+function Card({ isLogin }) {
   const [items, setItems] = useState([]);
   const [showEditItemModal, setShowEditItemModal] = useState(false);
   const [showAddItemModal, setShowAddItemModal] = useState(false);
@@ -190,4 +190,4 @@ function card({ isLogin }) {
   );
 }
 
-export default card;
+export default Card;

@@ -5,7 +5,7 @@ import Modal from "../modal/index";
 
 import { db } from "../../app/firebase";
 
-function Index({ setShowModel, showModel, categories }) {
+function AddItemsModal({ setShowModel, showModel, categories }) {
   const [file, setFile] = useState("");
   const [withSale, setWithSale] = useState(false);
   const [newItem, setNewItem] = useState({
@@ -122,8 +122,10 @@ function Index({ setShowModel, showModel, categories }) {
             class=" border border-gray-300 text-gray-900 text-sm   block w-full p-2.5 "
           >
             <option></option>
-            {categories?.map?.((i) => (
-              <option value={i}>{i}</option>
+            {categories?.map?.((i, index) => (
+              <option key={i + index + 1} value={i}>
+                {i}
+              </option>
             ))}
           </select>
         </div>
@@ -177,4 +179,4 @@ function Index({ setShowModel, showModel, categories }) {
   );
 }
 
-export default Index;
+export default AddItemsModal;

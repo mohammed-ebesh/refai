@@ -3,7 +3,7 @@ import { AiFillFacebook } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io";
 
-function Index() {
+function Footer() {
   const date = new Date();
   const year = date.getFullYear();
   const socialMedia = [
@@ -44,4 +44,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Footer;

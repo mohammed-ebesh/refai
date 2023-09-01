@@ -5,6 +5,7 @@ import { Almarai } from "next/font/google";
 const almarai = Almarai({
   weight: "400",
   subsets: ["arabic"],
+  variable: "--display-font",
 });
 export const metadata: Metadata = {
   title: "AL-Refai Roastery",
@@ -18,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={almarai.className}>{children}</body>
+      <body className={almarai.variable}>{children}</body>
     </html>
   );
 }

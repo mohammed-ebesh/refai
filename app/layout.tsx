@@ -17,6 +17,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  //sagy
   return (
     <html lang="en">
       <body className={almarai.variable}>{children}</body>

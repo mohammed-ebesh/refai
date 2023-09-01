@@ -9,6 +9,8 @@ import DeleteModal from "../deleteModal/index";
 import EditItemModal from "../editModal/index";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import AddItemMolad from "../addItemsModal/index";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/app/rtk/products-slice";
 
 function Card({ isLogin }) {
   const [items, setItems] = useState([]);
@@ -17,6 +19,7 @@ function Card({ isLogin }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [itemData, setItemData] = useState({});
   const [categories, setCategories] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const q = query(collection(db, "items"));
@@ -84,10 +87,12 @@ function Card({ isLogin }) {
                   </div>
                 )}
                 <a className="relative mx-3 mt-3 flex h-60 overflow-hidden ">
-                  <img
+                  <Image
                     className="object-cover"
                     src="https://static.webteb.net/images/content/tbl_articles_article_15381_526d07634dd-b54a-43bc-9470-1e48cade4db9.jpg"
                     alt="product image"
+                    width={500}
+                    height={500}
                   />
                 </a>
                 <div className="mt-4 px-5 pb-5">
@@ -101,7 +106,7 @@ function Card({ isLogin }) {
                           </span>
                         </span>
                       ) : (
-                        <spsn> {item.name}</spsn>
+                        <span> {item.name}</span>
                       )}
                     </h5>
                   </a>
@@ -145,7 +150,20 @@ function Card({ isLogin }) {
                       </div>
                     </div>
                   ) : (
-                    <a className="flex select-none items-center cursor-pointer gap-3 justify-center rounded-md bg-[#191919] hover:bg-[#292828] px-5 py-2.5 text-center text-sm font-medium text-white  ">
+                    <a
+                      onClick={() =>
+                        dispatch(
+                          addToCart({
+                            id: item.id,
+                            price: item.price,
+                            lastprice: item.price,
+                            quantity: item.qnty,
+                            lastPrice: item.price,
+                          })
+                        )
+                      }
+                      className="flex select-none items-center cursor-pointer gap-3 justify-center rounded-md bg-[#191919] hover:bg-[#292828] px-5 py-2.5 text-center text-sm font-medium text-white  "
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="mr-2 h-6 w-6"

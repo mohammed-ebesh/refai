@@ -1,7 +1,9 @@
+"use client";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
-
+import { Provider } from "react-redux";
+import store from "./rtk/store";
 const almarai = Almarai({
   weight: "400",
   subsets: ["arabic"],
@@ -17,10 +19,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  //sagy
+  //sagynpm uninstall
   return (
     <html lang="en">
-      <body className={almarai.variable}>{children}</body>
+      <Provider store={store}>
+        <body className={almarai.variable}>{children}</body>
+      </Provider>
     </html>
   );
 }

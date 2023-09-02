@@ -1,8 +1,7 @@
-"use client";
 import "./globals.css";
 import { Almarai } from "next/font/google";
-import { Provider } from "react-redux";
-import store from "./rtk/store";
+import ClientComponent from "../components/ClientComponent";
+
 const almarai = Almarai({
   weight: "400",
   subsets: ["arabic"],
@@ -16,9 +15,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <Provider store={store}>
+      <ClientComponent>
         <body className={almarai.variable}>{children}</body>
-      </Provider>
+      </ClientComponent>
     </html>
   );
 };

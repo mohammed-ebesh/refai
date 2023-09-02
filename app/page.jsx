@@ -4,14 +4,14 @@ import Items from "../components/items/card";
 import Footer from "../components/footer/index";
 import LoginModalFrom from "../components/loginModal/index.js";
 import ScrollToTop from "../components/scrollToTop/index";
-import { collection, query, onSnapshot } from "firebase/firestore";
-import SetReceiptType from "../components/SetReceiptTypeModal/index";
-import { db } from "./firebase";
-import { useState, useEffect } from "react";
+/* import { collection, query, onSnapshot } from "firebase/firestore";
+ */ import SetReceiptType from "../components/SetReceiptTypeModal/index";
+/* import { db } from "./firebase";
+ */ import { useState, useEffect } from "react";
 export default function Home() {
   // saje
-  const [isOpenForChipping, seIsOpenForChipping] = useState(true);
-  useEffect(() => {
+  /*   const [isOpenForChipping, seIsOpenForChipping] = useState(true);
+   */ /*   useEffect(() => {
     const q = query(collection(db, "isOpenForChipping"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let itemsArr = [];
@@ -22,7 +22,7 @@ export default function Home() {
       console.log(isOpenForChipping);
       return () => unsubscribe();
     });
-  }, []);
+  }, []); */
   const [showLoginModal, setShowLogInModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [showReceiptTypeModal, setShowReceiptTypeModal] = useState(true);

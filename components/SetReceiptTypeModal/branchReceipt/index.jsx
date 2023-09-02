@@ -1,6 +1,5 @@
 "use cielnt";
 import React, { useState } from "react";
-import { CiClock2 } from "react-icons/ci";
 import { PiPhoneCallLight } from "react-icons/pi";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineDone } from "react-icons/md";

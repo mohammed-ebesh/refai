@@ -3,13 +3,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Logo from "../../../assets/img/Logo.png";
 import { PiBag } from "react-icons/pi";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux/es/hooks/useSelector";
-function Nav({ setShowLogInModal, isLogin, setIsLogin }) {
+/* import { useSelector } from "react-redux/es/hooks/useSelector";
+ */ function Nav({ setShowLogInModal, isLogin, setIsLogin }) {
   const router = useRouter();
-  const { cart } = useSelector((state) => state.cart);
-  console.log(cart);
+  /*   const cart = useSelector((state) => state.cart);
+   */
   return (
     <div className="bg-[#191919] p-3">
       <div className="container m-auto">
@@ -26,7 +25,7 @@ function Nav({ setShowLogInModal, isLogin, setIsLogin }) {
                 </button>
 
                 <div className="bg-[#FB5A5A] rounded-full w-[20px] h-[20px] flex items-center justify-center text-white text-[10px] absolute top-[-8px] left-[-8px]">
-                  {cart.length}
+                  {0}
                 </div>
               </div>
             )}

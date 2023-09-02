@@ -59,7 +59,7 @@ const Model: React.FC<PropsType> = ({
                     onClose(show);
                   }}
                   size="1.8rem"
-                  className="text-gray-500 transition duration-300 transform cursor-pointer hover:text-main hover:rotate-180 z-[200]"
+                  className="text-gray-500 transition duration-300 transform cursor-pointer hover:text-main hover:rotate-180 "
                 />
               )}
             </div>

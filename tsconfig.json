@@ -30,7 +30,8 @@
     ".next/types/**/*.ts",
     "app/page.js",
     "app/layout.jsx",
-    "app/provider.jsx"
+    "app/provider.jsx",
+    "components/header/index.js"
   ],
   "exclude": ["node_modules"]
 }

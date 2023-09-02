@@ -2,26 +2,30 @@
 import Modal from "../modal/index";
 import Delivery from "./delivery/index";
 import BranchReceipt from "./branchReceipt/index";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SelectType from "./selectType/index";
-function SetReceiptType({ showModal, setShowModal }) {
-  const [receiptType, setReceiptType] = useState("delivery");
+import { useDispatch, useSelector } from "react-redux";
+import { setShowOrderTypeModal } from "../../app/rtk/order-slice";
+
+function SetReceiptType() {
+  const [receiptType, setReceiptType] = useState("branchReceipt");
+  const dispatch = useDispatch();
+  const { showOrderTypeModal } = useSelector((state) => state.order);
+
   return (
     <Modal
       width="w-[100%]  md:w-[75%] lg:w-[50%]"
       maxHeight={"100vh"}
       withoutPadding={true}
-      show={showModal}
+      show={showOrderTypeModal}
       onClose={(e) => {
-        setShowModal(false);
+        dispatch(setShowOrderTypeModal(false));
       }}
     >
       <div className="relative">
         <SelectType receiptType={receiptType} setReceiptType={setReceiptType} />
-        {receiptType === "delivery" && <Delivery setShowModal={setShowModal} />}
-        {receiptType === "branchReceipt" && (
-          <BranchReceipt setShowModal={setShowModal} />
-        )}
+        {receiptType === "delivery" && <Delivery />}
+        {receiptType === "branchReceipt" && <BranchReceipt />}
       </div>
     </Modal>
   );

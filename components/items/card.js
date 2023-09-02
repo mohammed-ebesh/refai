@@ -9,8 +9,10 @@ import DeleteModal from "../deleteModal/index";
 import EditItemModal from "../editModal/index";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import AddItemMolad from "../addItemsModal/index";
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/app/rtk/products-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeItem } from "@/app/rtk/products-slice";
+import _objI from "../../app/utils/_objI";
+import { setShowOrderTypeModal } from "../../app/rtk/order-slice";
 
 function Card({ isLogin }) {
   const [items, setItems] = useState([]);
@@ -20,7 +22,8 @@ function Card({ isLogin }) {
   const [itemData, setItemData] = useState({});
   const [categories, setCategories] = useState([]);
   const dispatch = useDispatch();
-
+  const { orderType } = useSelector((state) => state.order);
+  const { cart } = useSelector((state) => state.cart);
   useEffect(() => {
     const q = query(collection(db, "items"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -30,8 +33,6 @@ function Card({ isLogin }) {
         itemsArr.push({ ...doc.data(), id: doc.id });
       });
       setItems(itemsArr);
-
-      // Read total from itemsArr
 
       return () => unsubscribe();
     });
@@ -45,9 +46,6 @@ function Card({ isLogin }) {
         cat.push({ ...doc.data(), id: doc.id });
       });
       setCategories(cat?.[0]?.cat);
-
-      // Read total from itemsArr
-
       return () => unsubscribe();
     });
   }, []);
@@ -70,6 +68,7 @@ function Card({ isLogin }) {
             </div>
           </div>
         )}
+
         {items.length === 0 ? (
           <div className="my-[7rem] flex items-center justify-center">
             <Image src={Loader} alt="loader" />
@@ -151,17 +150,28 @@ function Card({ isLogin }) {
                     </div>
                   ) : (
                     <a
-                      onClick={() =>
-                        dispatch(
-                          addToCart({
-                            id: item.id,
-                            price: item.price,
-                            lastprice: item.price,
-                            quantity: item.qnty,
-                            lastPrice: item.price,
-                          })
-                        )
-                      }
+                      onClick={() => {
+                        if (
+                          cart?.filter?.((i) => i.name == item.name).length > 0
+                        ) {
+                          dispatch(removeItem(item.id));
+                        } else {
+                          if (_objI(orderType)) {
+                            dispatch(
+                              addToCart({
+                                id: item.id,
+                                price: item.price,
+                                name: item.name,
+                                lastprice: item.price,
+                                quantity: item.qnty,
+                                lastPrice: item.price,
+                              })
+                            );
+                          } else {
+                            dispatch(setShowOrderTypeModal(true));
+                          }
+                        }
+                      }}
                       className="flex select-none items-center cursor-pointer gap-3 justify-center rounded-md bg-[#191919] hover:bg-[#292828] px-5 py-2.5 text-center text-sm font-medium text-white  "
                     >
                       <svg
@@ -178,7 +188,11 @@ function Card({ isLogin }) {
                           d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                         />
                       </svg>
-                      إضافة الى السلة
+                      {cart?.filter?.((i) => i.name == item.name).length > 0 ? (
+                        <span>إزالة من السلة</span>
+                      ) : (
+                        <span>إضافة الى السلة</span>
+                      )}
                     </a>
                   )}
                 </div>

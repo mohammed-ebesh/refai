@@ -1,5 +1,4 @@
-import React from "react";
-
+"use client";
 function SelectType({ receiptType, setReceiptType }) {
   return (
     <div className="absolute z-[1000] flex gap-4 w-full justify-center  bg-[#191919] p-7 text-white font-bold text-xl">

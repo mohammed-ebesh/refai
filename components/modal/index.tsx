@@ -1,3 +1,5 @@
+"use client";
+
 import { IoIosCloseCircle } from "react-icons/io";
 
 type PropsType = {

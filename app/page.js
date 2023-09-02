@@ -6,7 +6,7 @@ import LoginModalFrom from "../components/loginModal/index.js";
 import ScrollToTop from "../components/scrollToTop/index";
 import SetReceiptType from "../components/SetReceiptTypeModal/index";
 import { useState } from "react";
-export default function Home() {
+const Home = () => {
   const [showLoginModal, setShowLogInModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [showReceiptTypeModal, setShowReceiptTypeModal] = useState(true);
@@ -32,4 +32,5 @@ export default function Home() {
       />
     </main>
   );
-}
+};
+export default Home;

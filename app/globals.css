@@ -36,3 +36,40 @@ button {
 .easy-button-button {
   padding: 7px;
 }
+* {
+  box-sizing: border-box;
+}
+[data-title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
+}
+[data-title]:after {
+  content: attr(data-title);
+  background-color: #191919;
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  bottom: -3.6em;
+  left: 100%;
+  white-space: nowrap;
+  opacity: 0;
+  z-index: 99999;
+  visibility: hidden;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  line-height: normal;
+  padding: 5px 10px;
+  padding-bottom: 10px;
+}
+
+[data-title] {
+  position: relative;
+}
+
+.pseudo-tooltip-wrapper {
+  display: inline-block;
+}

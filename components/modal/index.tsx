@@ -9,6 +9,7 @@ type PropsType = {
   maxHeight?: string;
   bgColor?: string;
   withoutCloseIcon?: boolean;
+  withoutPadding?: boolean;
 };
 
 const Model: React.FC<PropsType> = ({
@@ -20,6 +21,7 @@ const Model: React.FC<PropsType> = ({
   maxHeight,
   bgColor = "bg-white",
   withoutCloseIcon = false,
+  withoutPadding = false,
 }) => {
   return (
     <div
@@ -34,7 +36,9 @@ const Model: React.FC<PropsType> = ({
         className={`relative flex items-center justify-center w-full h-full `}
       >
         <div
-          className={`fixed py-3 bg-white px-9 rounded-md  max-h-106  ${bgColor} ${
+          className={`fixed ${
+            withoutPadding ? "" : " py-3 px-9"
+          }  bg-white  rounded-md  max-h-106  ${bgColor} ${
             width ? width : "w-96"
           }`}
         >
@@ -53,7 +57,7 @@ const Model: React.FC<PropsType> = ({
                     onClose(show);
                   }}
                   size="1.8rem"
-                  className="text-gray-500 transition duration-300 transform cursor-pointer hover:text-main hover:rotate-180"
+                  className="text-gray-500 transition duration-300 transform cursor-pointer hover:text-main hover:rotate-180 z-[200]"
                 />
               )}
             </div>

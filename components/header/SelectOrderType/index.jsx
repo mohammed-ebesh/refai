@@ -28,7 +28,13 @@ function SelectOrderType() {
                     </div>
                   </>
                 ) : (
-                  <SlHandbag />
+                  <>
+                    <SlHandbag className="text-4xl" />
+                    <div>
+                      <div>توصيل</div>
+                      {/*     <div className="font-bold">{orderType.branch} </div> */}
+                    </div>
+                  </>
                 )}
               </div>
             ) : (

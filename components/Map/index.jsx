@@ -12,40 +12,29 @@ import React, { useEffect, useState } from "react";
 import icon from "./constants";
 import "leaflet-easybutton/src/easy-button.js";
 import "leaflet-easybutton/src/easy-button.css";
-import axios from "axios";
 import { data } from "./cordinates";
 import ConfirmAddressButton from "./ConfirmAddressButton";
 import { useCallback } from "react";
-
+import { MdOutlineMyLocation } from "react-icons/md";
+var pointInPolygon = require("point-in-polygon");
 function Map() {
-  const [addres, setAddres] = useState();
-  const [lastPosition, setLastPosition] = useState("");
-
-  const getData = async (lat, long) => {
-    await axios
-      .get(
-        `https://api.maptiler.com/geocoding/${lat},${long}.json?key=sskMMl900jLnaHd2iT14`
-      )
-      .then(function (response) {
-        setAddres(response?.data?.features?.[0]?.place_name_ar);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
+  const [canAllowedArea, setAllowedArea] = useState(false);
+  const [getMyLocation, setGetMyLocation] = useState(true);
+  const checkIfAdreesIsInAllowedArea = (cordinates) => {
+    if (pointInPolygon(cordinates, data) === true) {
+      setAllowedArea(true);
+    } else {
+      setAllowedArea(false);
+    }
   };
 
   function LocationMarker() {
     const [position, setPosition] = useState(null);
-    const [bbox, setBbox] = useState([]);
-    const map = useMap();
 
+    const map = useMap();
     const onMove = useCallback(() => {
       setPosition(map.getCenter());
-      /*  setLastPosition(map.getCenter()); */
+      checkIfAdreesIsInAllowedArea([map.getCenter().lat, map.getCenter().lng]);
     }, [map]);
 
     useEffect(() => {
@@ -56,12 +45,15 @@ function Map() {
     }, [map, onMove]);
 
     useEffect(() => {
-      map.locate().on("locationfound", function (e) {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-        setBbox(e.bounds.toBBoxString().split(","));
-      });
-    }, [map]);
+      if (getMyLocation === true) {
+        map.locate().on("locationfound", function (e) {
+          setPosition(e.latlng);
+          map.flyTo(e.latlng, map.getZoom());
+        });
+      }
+
+      setGetMyLocation(false);
+    }, [getMyLocation === true]);
 
     return position === null ? null : (
       <Marker position={position} icon={icon}></Marker>
@@ -80,9 +72,14 @@ function Map() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Polygon positions={data} />
-      {/*       <div onClick={() => getData(lastPosition.lat, lastPosition.lng)}> */}
-      <ConfirmAddressButton />
-      {/*   </div> */}
+
+      <ConfirmAddressButton canAllowedArea={canAllowedArea} />
+      <div
+        onClick={() => setGetMyLocation(true)}
+        className="absolute z-[1000] bg-white bottom-[4rem] border right-2 hover:bg-[#f8f7f7] cursor-pointer w-[30px] h-[30px] flex items-center justify-center text-xl rounded-sm"
+      >
+        <MdOutlineMyLocation />
+      </div>
       <LocationMarker />
     </MapContainer>
   );

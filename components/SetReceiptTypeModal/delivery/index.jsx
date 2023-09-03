@@ -5,12 +5,8 @@ const DynamicMap = dynamic(() => import("../../Map/index"), {
   ssr: false,
 });
 
-function Delivery({ setShowModal }) {
-  return (
-    <div>
-      <DynamicMap />
-    </div>
-  );
+function Delivery() {
+  return <DynamicMap />;
 }
 
 export default Delivery;

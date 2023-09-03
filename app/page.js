@@ -6,10 +6,11 @@ import LoginModalFrom from "../components/loginModal/index.js";
 import ScrollToTop from "../components/scrollToTop/index";
 import SetReceiptType from "../components/SetReceiptTypeModal/index";
 import { useState } from "react";
+import ExecuteTheRequest from "../components/ExecuteTheRequest/index";
 const Home = () => {
   const [showLoginModal, setShowLogInModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-  const [showReceiptTypeModal, setShowReceiptTypeModal] = useState(true);
+
   return (
     <main style={{ direction: "rtl" }} className="bg-[#f7f7f7] font-display">
       <Header
@@ -18,7 +19,6 @@ const Home = () => {
         setShowLogInModal={setShowLogInModal}
       />
       <Items isLogin={isLogin} />
-
       <Footer />
       <LoginModalFrom
         setIsLogin={setIsLogin}
@@ -26,10 +26,8 @@ const Home = () => {
         setShowModal={setShowLogInModal}
       />
       <ScrollToTop />
-      <SetReceiptType
-        showModal={showReceiptTypeModal}
-        setShowModal={setShowReceiptTypeModal}
-      />
+      <SetReceiptType />
+      <ExecuteTheRequest />
     </main>
   );
 };

@@ -22,7 +22,7 @@ export default function App() {
     <div>
       {scrollToTop && (
         <button
-          className="bg-[#EECF73] text-[#fff] text-center fixed p-[1rem] text-[20px] hover:bg-[#e2c263] bottom-[40px] right-[20px]"
+          className="bg-[#EECF73] text-[#fff] z-[500] text-center fixed p-[1rem] text-[20px] hover:bg-[#e2c263] bottom-[40px] right-[20px]"
           onClick={() => {
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
           }}

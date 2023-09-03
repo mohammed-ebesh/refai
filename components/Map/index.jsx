@@ -1,3 +1,4 @@
+"use client";
 import {
   MapContainer,
   TileLayer,
@@ -6,7 +7,7 @@ import {
   Polygon,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-/* import L from "leaflet"; */
+
 import React, { useEffect, useState } from "react";
 import icon from "./constants";
 import "leaflet-easybutton/src/easy-button.js";

@@ -27,11 +27,10 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    ".next/types/**/*.ts"
-    /*  "components/loginModal/index.jsx",
-    "components/header/index.js",
-    "components/header/navBar/index.jsx",
-    "components/items/card.js" */
+    ".next/types/**/*.ts",
+    "app/page.js",
+    "app/layout.jsx",
+    "app/provider.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -10,6 +10,7 @@ const nextConfig = {
       { loader: "@next/font/google", options: { subsets: ["arabic"] } },
     ],
   },
+
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   // trailingSlash: true,
 

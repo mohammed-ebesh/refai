@@ -41,8 +41,12 @@ button {
 }
 [data-title]:hover:after {
   opacity: 1;
-  transition: all 0.1s ease 0.5s;
+  transition: all 0.1s ease 0.1s;
   visibility: visible;
+  -webkit-transition: all 0.1s ease 0.1s;
+  -moz-transition: all 0.1s ease 0.1s;
+  -ms-transition: all 0.1s ease 0.1s;
+  -o-transition: all 0.1s ease 0.1s;
 }
 [data-title]:after {
   content: attr(data-title);
@@ -72,4 +76,10 @@ button {
 
 .pseudo-tooltip-wrapper {
   display: inline-block;
+}
+.cart-bg {
+  background-image: url("../assets/wepik-export-20230903005905G70h.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }

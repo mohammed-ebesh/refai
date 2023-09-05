@@ -21,7 +21,7 @@ function SelectOrderType() {
               <div className=" flex flex-row-reverse items-center gap-4">
                 {orderType.type === "branch" ? (
                   <>
-                    <CiDeliveryTruck className="text-4xl" />
+                    <SlHandbag className="text-4xl" />
                     <div>
                       <div>استلام من </div>
                       <div className="font-bold">{orderType.branch} </div>
@@ -29,7 +29,7 @@ function SelectOrderType() {
                   </>
                 ) : (
                   <>
-                    <SlHandbag className="text-4xl" />
+                    <CiDeliveryTruck className="text-4xl" />
                     <div>
                       <div>توصيل</div>
                       {/*     <div className="font-bold">{orderType.branch} </div> */}

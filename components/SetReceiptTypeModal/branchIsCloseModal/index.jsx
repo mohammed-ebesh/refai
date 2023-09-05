@@ -1,3 +1,4 @@
+import { emptyCart } from "@/app/rtk/products-slice";
 import Modal from "../../modal/index";
 
 function BranchIsCloseModal({
@@ -14,6 +15,7 @@ function BranchIsCloseModal({
         dispatch(setOrderType({}));
         setShowModal(false);
         dispatch(setShowOrderTypeModal(false));
+        dispatch(emptyCart());
       }}
     >
       <div className="font-bold">الفرع مغلق</div>

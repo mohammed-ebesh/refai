@@ -8,21 +8,21 @@ function Footer() {
   const year = date.getFullYear();
   const socialMedia = [
     {
-      img: <AiFillFacebook />,
+      img: <AiFillFacebook className="hover:text-[#1877F2]" />,
       link: "https://www.facebook.com/alrefai.roastery",
     },
     {
-      img: <AiFillInstagram />,
+      img: <AiFillInstagram className="hover:text-[#E4405F]" />,
       link: "https://www.instagram.com/alrefai.roastery/",
     },
     {
-      img: <IoLogoWhatsapp />,
+      img: <IoLogoWhatsapp className="hover:text-[#25D366]" />,
       link: "https://api.whatsapp.com/send/?phone=%2B201200084002&text&type=phone_number&app_absent=0",
     },
   ];
 
   return (
-    <footer className="bg-[#191919] p-5   text-white">
+    <footer className="bg-[#191919] p-5 text-white">
       <div className="container m-auto">
         <div className="flex gap-3 items-center">
           <div className="text-[25px]">تابعنا</div>
@@ -37,7 +37,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          جميع الحقوق محفوظة © محمة الرفاعي {year}
+          جميع الحقوق محفوظة © محمصة الرفاعي {year}
         </div>
       </div>
     </footer>

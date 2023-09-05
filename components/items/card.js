@@ -164,7 +164,7 @@ function Card({ isLogin }) {
                                 name: item.name,
                                 lastprice: item.price,
                                 quantity: item.qnty,
-                                lastPrice: item.price,
+                                unit: item.unit,
                               })
                             );
                           } else {

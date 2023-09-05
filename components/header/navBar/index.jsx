@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Logo from "../../../assets/img/Logo.png";
-import { PiBag } from "react-icons/pi";
+import { BiCartAlt } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 function Nav({ setShowLogInModal, isLogin, setIsLogin }) {
@@ -20,10 +20,10 @@ function Nav({ setShowLogInModal, isLogin, setIsLogin }) {
             {isLogin ? null : (
               <div className="relative cursor-pointer">
                 <button onClick={() => router.push("/cart")}>
-                  <PiBag className="text-[#A6A6A6] text-[40px]" />
+                  <BiCartAlt className="text-[#A6A6A6] text-[32px] hover:text-[#FFD740]" />
                 </button>
 
-                <div className="bg-[#FB5A5A] rounded-full w-[20px] h-[20px] flex items-center justify-center text-white text-[10px] absolute top-[-8px] left-[-8px]">
+                <div className="bg-[#FFD740] rounded-full w-[18px] h-[18px] flex items-center justify-center text-black text-[11px] font-bold absolute top-[-14px] right-[-10px]">
                   {cart.length}
                 </div>
               </div>

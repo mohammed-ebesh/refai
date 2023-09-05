@@ -79,7 +79,7 @@ const LoginModal = ({ showModal, setShowModal, setIsLogin }) => {
 
           <button
             type="submit"
-            className="w-full text-white bg-[#191919] hover:bg-[#2e2e2e]    font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+            className="w-full text-white bg-[#191919] hover:bg-[#2e2e2e] font-medium rounded-lg text-sm px-5 py-2.5 text-center "
           >
             تسجيل الدخول
           </button>

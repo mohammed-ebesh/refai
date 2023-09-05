@@ -17,18 +17,18 @@ function BranchReceipt() {
   const branches = [
     {
       branchName: "فرع الإسكندرية شارع الإقبال",
+      openTime: 9,
+      closeTime: 2,
+      branchNumber: "01200084002",
+      location: "https://goo.gl/maps/zEdTyPfsbmWTR6g36",
+    },
+    {
+      branchName: "ساجي",
       openTime: 4,
       closeTime: 2,
       branchNumber: "01200084002",
       location: "https://goo.gl/maps/zEdTyPfsbmWTR6g36",
     },
-    /*  {
-      branchName: "ساجي",
-      openTime: 9,
-      closeTime: 2,
-      branchNumber: "01200084002",
-      location: "https://goo.gl/maps/zEdTyPfsbmWTR6g36",
-    }, */
   ];
   const [selectedBranch, setSelectedBranch] = useState(branches[0].branchName);
   const [showCloseBranchModal, setShowCloseBreanchModal] = useState(false);

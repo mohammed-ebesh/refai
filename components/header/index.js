@@ -3,7 +3,12 @@ import Navbar from "./navBar/index";
 import Hero from "./hero/index";
 import OrderType from "./SelectOrderType/index";
 
-function Header({ setShowLogInModal, isLogin, setIsLogin }) {
+function Header({
+  setShowLogInModal,
+  isLogin,
+  setIsLogin,
+  showJustNav = false,
+}) {
   return (
     <>
       <Navbar
@@ -11,8 +16,12 @@ function Header({ setShowLogInModal, isLogin, setIsLogin }) {
         isLogin={isLogin}
         setIsLogin={setIsLogin}
       />
-      <OrderType />
-      <Hero />
+      {!showJustNav && (
+        <>
+          <OrderType />
+          <Hero />
+        </>
+      )}
     </>
   );
 }

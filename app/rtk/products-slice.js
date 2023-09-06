@@ -36,6 +36,11 @@ export const productsSlice = createSlice({
         item.lastPrice = item.lastPrice - item.price;
       }
     },
+    weightAdjustment: (state, action) => {
+      const item = state.cart.find((item) => item.id === action.payload.id);
+      item.quantity = action.payload.quantity;
+      item.lastPrice = item.price * action.payload.quantity;
+    },
     addToCart: (state, action) => {
       const itemsInCart = state.cart.find(
         (item) => item.id === action.payload.id
@@ -61,5 +66,11 @@ export const productsSlice = createSlice({
   },
 });
 export default productsSlice.reducer;
-export const { increment, decrement, addToCart, removeItem, emptyCart } =
-  productsSlice.actions;
+export const {
+  increment,
+  decrement,
+  addToCart,
+  removeItem,
+  emptyCart,
+  weightAdjustment,
+} = productsSlice.actions;

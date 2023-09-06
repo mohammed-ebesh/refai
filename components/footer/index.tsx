@@ -22,7 +22,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[#191919] p-5 text-white">
+    <footer className="bg-[#191919] p-5 text-white font-display">
       <div className="container m-auto">
         <div className="flex gap-3 items-center">
           <div className="text-[25px]">تابعنا</div>

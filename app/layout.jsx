@@ -14,9 +14,11 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html>
+    <html lang="ar">
       <ClientComponent>
-        <body className={almarai.variable}>{children}</body>
+        <body dir="rtl" className={almarai.variable}>
+          {children}
+        </body>
       </ClientComponent>
     </html>
   );

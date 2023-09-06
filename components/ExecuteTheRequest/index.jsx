@@ -1,13 +1,18 @@
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { PiBag } from "react-icons/pi";
+import { useRouter } from "next/navigation";
+
 function ExecuteTheRequest() {
   const { cart } = useSelector((state) => state.cart);
-
+  const router = useRouter();
   return (
     <div>
       {cart.length > 0 && (
-        <div className="fixed bottom-0 cursor-pointer gap-3 w-full flex flex-row-reverse items-center justify-center duration-75 hover:bg-[#292828] lg:hidden bg-[#191919] py-5 z-[400] text-white">
+        <div
+          onClick={() => router.push("/cart")}
+          className="fixed bottom-0 cursor-pointer gap-3 w-full flex flex-row-reverse items-center justify-center duration-75 hover:bg-[#292828] lg:hidden bg-[#191919] py-5 z-[400] text-white"
+        >
           <div className="text-xl">تنفيذ الطلب</div>
           <div className="relative">
             <PiBag className="text-white text-[40px]" />

@@ -93,7 +93,7 @@ function BranchReceipt() {
             } else {
               dispatch(
                 setOrderType({
-                  type: "branch",
+                  type: "branchReceipt",
                   branch: selectedBranch,
                 })
               );

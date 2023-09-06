@@ -69,6 +69,10 @@ function Card({ isLogin }) {
           </div>
         )}
 
+        <div className="text-center mb-6 font-bold lg:text-xl text-lg ">
+          يمكنك تحديد كميات وأوزان الأصناف عند تنفيذ الطلب
+        </div>
+
         {items.length === 0 ? (
           <div className="my-[7rem] flex items-center justify-center">
             <Image src={Loader} alt="loader" />
@@ -162,7 +166,6 @@ function Card({ isLogin }) {
                                 id: item.id,
                                 price: item.price,
                                 name: item.name,
-                                lastprice: item.price,
                                 quantity: item.qnty,
                                 unit: item.unit,
                               })

@@ -19,7 +19,7 @@ function SelectOrderType() {
           <div className="text-xs">
             {_objI(orderType) ? (
               <div className=" flex flex-row-reverse items-center gap-4">
-                {orderType.type === "branch" ? (
+                {orderType.type === "branchReceipt" ? (
                   <>
                     <SlHandbag className="text-4xl" />
                     <div>

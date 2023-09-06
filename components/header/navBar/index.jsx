@@ -9,7 +9,7 @@ function Nav({ setShowLogInModal, isLogin, setIsLogin }) {
   const { cart } = useSelector((state) => state.cart);
 
   return (
-    <div className="bg-[#191919] p-3">
+    <div className="bg-[#191919] p-3 font-display">
       <div className="container m-auto">
         <div className=" flex gap-10  justify-between items-center">
           <div className="relative w-[78.59px] h-[91.44px] ">

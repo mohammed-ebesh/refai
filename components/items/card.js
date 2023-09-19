@@ -226,3 +226,7 @@ function Card({ isLogin }) {
 }
 
 export default Card;
+
+
+
+
